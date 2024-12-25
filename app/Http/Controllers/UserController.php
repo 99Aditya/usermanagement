@@ -61,7 +61,6 @@ class UserController extends Controller{
             }
 
             return redirect('/')->with('success', 'User data saved successfully!');
-
         }else{
             return redirect()->back()->with('error','Something went wrong');
         }
@@ -76,7 +75,6 @@ class UserController extends Controller{
     public function getUsers($id = 0){
         $id = base64_decode($id);
         $data = UserHead::with('state_name','city_name','users')->where('id', $id)->first();
-
         return view('user',compact('data'));
     }
 }
